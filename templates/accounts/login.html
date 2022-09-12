@@ -1,0 +1,37 @@
+{% extends 'base_layout.html'%}
+
+
+{% block madden %}
+<style>
+h1{  
+    color: aquamarine;
+}
+</style>
+{% endblock %}
+
+{% block content%}
+<h1>Login</h1>
+<br>
+<form action="/accounts/login/" method="post" style="font-size: 1.5rem;">
+    {% csrf_token %}
+    {{ form }}
+    {% if request.GET.next %}
+        <input type="hidden" name="next" value="{{ request.GET.next }}">
+    {% endif %}
+    
+    <button style="display: inline-block;
+    font-family: 'Ubuntu';
+        padding: 0.2rem 1.25rem;
+        border-radius: 10rem;
+        color:black;
+        background-color: burlywood;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 0.15rem;
+        transition: all 0.3s;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;">Log-in</button>
+
+</form>
+{% endblock %}

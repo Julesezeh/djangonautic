@@ -1,0 +1,24 @@
+{% extends 'base_layout.html'%}
+
+
+{% block madden %}
+<style>
+.tinker{  
+    color:burlywood;
+    text-align: center;
+}
+img{
+    align-items: center;
+}
+</style>
+{% endblock %}
+
+{% block content%}
+<h2 class="tinker">Sign-up</h2>
+<form style="list-style-type: none;" class='tinker' action='/accounts/signup/' method="post">
+    {% csrf_token %}
+    {{ ferm.as_p}}
+    <button type="submit">Sign-up</button>
+
+</form>
+{% endblock %}

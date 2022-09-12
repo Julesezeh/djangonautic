@@ -1,0 +1,52 @@
+{% extends 'base_layout.html' %}
+
+{% block madden %}
+    <style>
+        .main{
+            text-align: center;
+        }
+        h1{
+            color: burlywood;
+        }
+    </style>
+
+{% endblock %}
+
+{% block content %}
+
+{% if request.user == art.author %}
+    <p>
+        {% if art %}
+        <a href="{% url 'particular:edit' slug=art.slug %}">
+            Edit article
+        </a>
+        {% endif %}
+    </p>
+ 
+
+{% endif %}
+<small><a href="{% url 'particular:articles' %}"><button style="display: inline-block;
+font-family: 'Ubuntu';
+    padding: 0.75rem 1.25rem;
+    border-radius: 10rem;
+    color:black;
+    background-color: burlywood;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.15rem;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;">Back</button></a></small>
+<div style="padding-left: 20px; text-align: center;" class="articless">
+    
+    <h1>{{art.title}}</h1>
+
+    <small ><h3 style="padding-top: 10px; padding-bottom: 5px;">by <a href=""></a>{{art.author}}</a></h3></small>
+    <img src="{{ art.thumbnail.url }}" alt="thumbnail" style="width: 900px;height: 400px;">
+    <p>{{art.body}}</p>
+    <p>{{art.date}}</p>
+</div>
+
+
+{% endblock %}

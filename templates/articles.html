@@ -1,0 +1,35 @@
+{% extends 'base_layout.html'%}
+
+{% block madden %}
+    <title>Articles</title>
+    <style>
+        .main{
+        text-align: center;
+        vertical-align: super;
+        }
+        a{
+            color: lightgreen;
+            text-decoration: none;
+        }
+        a:hover{
+            color: aquamarine;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    
+    <div class='Articles container' style='padding-left:20px'>
+        {% if Articles %}
+            {% for art in Articles %}
+                <h1 class="title"><a href="{% url 'particular:detail' slug=art.slug %}">{{art.title}}</a></h1>
+                <h3 style="padding-top: 10px;">by <a href="">{{art.author}}</a></h3>
+                <p>{{art.slim}}</p>
+                <p>{{art.date}} <small><a href="{% url 'particular:log' %}">Edited</a></small></p>
+                <br>
+                <hr style="color:cadetblue">
+            {% endfor %}
+
+        {% endif %}
+    </div>
+{% endblock %}

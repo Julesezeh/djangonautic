@@ -1,0 +1,16 @@
+{% extends base_layout %}
+
+{%  block content %}
+
+<div class="date-log">
+
+    {% if photo %}
+        {% for x in photo %}
+            <h3>{{x}}</h3>    
+        {% endfor %}
+    {% endif %}
+
+</div>
+
+
+{% endblock %}

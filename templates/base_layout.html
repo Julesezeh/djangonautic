@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'slatt.css' %}">
+    {% block madden %}
+    {% endblock %}
+    
+</head>
+<body>
+    <div class="wrapper">
+        <div class="main container">
+            <h2 style='text-align: left; padding-left: 80px; padding-top: 20px;'id="home"><a href="{% url 'home' %}">HOME</a></h2>
+            <br>
+            <h1 style="text-align: left; padding-left: 10px;" ><a href="{% url 'particular:articles' %}"><img src="{% static 'logo.png' %}" alt="logo"></a></h1>
+            <nav>
+                <ul style="list-style-type: none;">
+                    {% if user.is_authenticated %}
+                        <li>  <form class="logout-link" action="{% url 'particular:create' %}" method="get">
+                            {% csrf_token %}            
+                            <button type="submit" style="display: inline-block;
+                            font-family: 'Ubuntu';
+                                padding: 0.75rem 1.25rem;
+                                border-radius: 10rem;
+                                color:black;
+                                background-color: burlywood;
+                                text-transform: uppercase;
+                                font-size: 0.8rem;
+                                letter-spacing: 0.15rem;
+                                transition: all 0.3s;
+                                position: relative;
+                                overflow: hidden;
+                                z-index: 1;">CREATE NEW ARTICLE</button>
+                        </form></li>
+                        <li>
+                            <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
+                                {% csrf_token %}            
+                                <button type="submit" style="display: inline-block;
+                                font-family: 'Ubuntu';
+                                    padding: 0.75rem 1.25rem;
+                                    border-radius: 10rem;
+                                    color:black;
+                                    background-color:burlywood;
+                                    text-transform: uppercase;
+                                    font-size: 0.8rem;
+                                    letter-spacing: 0.15rem;
+                                    transition: all 0.3s;
+                                    position: relative;
+                                    overflow: hidden;
+                                    z-index: 1;">Log-out</button>
+                            </form>
+                        </li>
+                    {% else %}
+                    <div style="padding-right: 20px;">
+                        <li style="text-align: right;"><a href="{% url 'accounts:login' %}"><button style="display: inline-block;
+                            font-family: 'Ubuntu';
+                                padding: 0.75rem 1.25rem;
+                                border-radius: 10rem;
+                                color:black;
+                                background-color: burlywood;
+                                text-transform: uppercase;
+                                font-size: 0.8rem;
+                                letter-spacing: 0.15rem;
+                                transition: all 0.3s;
+                                position: relative;
+                                overflow: hidden;
+                                z-index: 1;"> LOG IN </button></a></li>
+                        <br>
+                       <li style="text-align: right;"><a href="{% url 'accounts:signup' %}"><button style="display: inline-block;
+                        font-family: 'Ubuntu';
+                            padding: 0.75rem 1.25rem;
+                            border-radius: 10rem;
+                            color:black;
+                            background-color:burlywood;
+                            text-transform: uppercase;
+                            font-size: 0.8rem;
+                            letter-spacing: 0.15rem;
+                            transition: all 0.3s;
+                            position: relative;
+                            overflow: hidden;
+                            z-index: 1;"> SIGN-UP </button></a></li>
+                    </div>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>  
+        <br>
+        <br>
+        <div class="container">
+            {% block content %}
+            {% endblock %}
+    
+        </div>
+    </div>
+</body>
+</html>

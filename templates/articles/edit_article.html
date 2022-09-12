@@ -1,0 +1,15 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+<h1>Edit Your Article :) </h1>
+
+<form class="site-form" action="{% url 'particular:articles' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Edit">
+</form>
+
+
+
+
+{% endblock %}
