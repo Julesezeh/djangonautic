@@ -1,1 +1,1 @@
-web: gunicorn wsgi:Assesment
+web: gunicorn Assesment: Assesment.wsgi
