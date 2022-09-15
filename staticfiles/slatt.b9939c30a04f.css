@@ -1,0 +1,38 @@
+body{
+    height: 100vh;
+    background-image: url("stars.0689b4306965.png");
+    background-color: #0f121f;
+    background-repeat:repeat;
+    background-size: cover;
+    color: #fff;
+}
+
+body *{
+    font-family: Ubuntu;
+}
+.logout-link{
+    text-align: right;
+}
+
+.main{
+    text-align: center;
+}
+a{
+    color: rgb(114, 189, 92);
+    text-decoration: none;
+}
+a:hover{
+    color: white;
+}
+h1,h2,h3,h3,h4{
+    font-weight: normal;
+    margin: 0;
+    color: burlywood;
+}
+
+.services li{
+    color:#fff
+}
+#header-intro{
+    font-size: larger;
+}
